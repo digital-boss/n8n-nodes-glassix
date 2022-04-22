@@ -19,9 +19,10 @@ export async function glassixApiRequest(
       "Content-Type": "application/json",
     },
     method: 'GET',
-    uri: `https://app.glassix.com/api/v1.2/webhooks/getevents?deleteEvents=true'`,
+    uri: 'https://app.glassix.com/api/v1.2/webhooks/getevents?deleteEvents=true',
   };
   const credentials = await this.getCredentials("glassixApi");
+  console.log(credentials)
   if (credentials != undefined && credentials.glassixApiKey) {
     options.headers!["Authorization"] = "Bearer " + credentials.glassixApiKey;
     console.log(credentials);

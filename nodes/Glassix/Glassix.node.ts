@@ -28,7 +28,30 @@ export class Glassix implements INodeType {
       },
     ],
 
-    properties: [],
+    properties: [
+      // ----------------------------------
+      //        Webhook operations
+      // ----------------------------------
+      {
+        displayName: "Operation",
+        name: "operation",
+        type: "options",
+        options: [
+          {
+            name: "Get",
+            value: "GET",
+            description: "Get data of an entry",
+          },
+          {
+            name: "Delete",
+            value: "DELETE",
+            description: "Delete an entry",
+          },
+        ],
+        default: "GET",
+        description: "The operation to perform.",
+      },
+    ],
   };
 
   async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
